@@ -24,8 +24,14 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Test Docker login
+        run: docker info
+
       - name: Build Docker image
-        run: docker build -t myapp .
+        run: docker build -t scarface2305/si-2026-lab3:master-latest .
+      
+      - name: Push image
+        run: docker push scarface2305/si-2026-lab3:master-latest
 
       - name: Deploy to GitHub Pages
         uses: actions/configure-pages@v5
