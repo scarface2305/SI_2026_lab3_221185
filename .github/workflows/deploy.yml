@@ -28,10 +28,10 @@ jobs:
         run: docker info
 
       - name: Build Docker image
-        run: docker build -t scarface2305/si-2026-lab3:master-latest .
+        run: docker build -t scarface2305/si-2026-lab3:${{ github.ref_name }}-latest .
       
       - name: Push image
-        run: docker push scarface2305/si-2026-lab3:master-latest
+        run: docker push scarface2305/si-2026-lab3:${{ github.ref_name }}-latest
 
       - name: Deploy to GitHub Pages
         uses: actions/configure-pages@v5
